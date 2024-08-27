@@ -10,7 +10,7 @@ Enhances Airbnb's ESLint config with TypeScript support
 >
 > - Only flat config (eslint.config.mjs) is supported
 > - Minimum ESLint version of `8.57.0`
-> - Minimum typescript-eslint version of `7.0.0`
+> - Minimum typescript-eslint version of `7.5.0`
 > - Replaces eslint-plugin-import with eslint-plugin-import-x
 >
 > The benefits are that it supports the latest ESLint ecosystem versions:
