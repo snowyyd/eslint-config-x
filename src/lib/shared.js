@@ -167,8 +167,8 @@ module.exports = [
           cjs: 'never',
           ts: 'never',
           tsx: 'never',
-          cts: 'never',
           mts: 'never',
+          cts: 'never',
         },
       ],
 

@@ -1,4 +1,4 @@
-/* eslint-disable import-x/no-extraneous-dependencies, import-x/extensions */
+/* eslint-disable import-x/extensions */
 import eslintConfigPrettier from 'eslint-config-prettier';
 import airbnbTs from './src/base.js';
 
