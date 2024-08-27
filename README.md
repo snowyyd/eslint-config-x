@@ -1,18 +1,23 @@
-# eslint-config-airbnb-typescript
-
-[![Version](https://img.shields.io/npm/v/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/eslint-config-airbnb-typescript?activeTab=versions) [![Downloads](https://img.shields.io/npm/dt/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/eslint-config-airbnb-typescript) [![Last commit](https://img.shields.io/github/last-commit/iamturns/eslint-config-airbnb-typescript.svg?style=flat-square)](https://github.com/iamturns/eslint-config-airbnb-typescript/graphs/commit-activity) [![Build](https://img.shields.io/circleci/project/github/iamturns/eslint-config-airbnb-typescript/master.svg?style=flat-square)](https://circleci.com/gh/iamturns/eslint-config-airbnb-typescript) [![License](https://img.shields.io/github/license/iamturns/eslint-config-airbnb-typescript.svg?style=flat-square)](https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/CONTRIBUTING.md) [![Code of conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/CODE_OF_CONDUCT.md)
+# eslint-config-airbnb-typescript-x
 
 Enhances Airbnb's ESLint config with TypeScript support
 
 > [!IMPORTANT]
 >
-> ## This repo has been archived
+> ## This is a fork
 >
-> After six years and reaching 2 million weekly downloads, I can no longer give this project the attention it deserves.
+> This project is a fork of eslint-config-airbnb-typescript. It modernizes it and introduces several breaking changes:
 >
-> Please fork this repo and carry it forward! I'll happily share links to forks here.
+> - Only flat config (eslint.config.mjs) is supported
+> - Minimum ESLint version of `8.57.0`
+> - Minimum typescript-eslint version of `7.0.0`
+> - Replaces eslint-plugin-import with eslint-plugin-import-x
 >
-> A huge thank you to all contributors along the way ❤️
+> The benefits are that it supports the latest ESLint ecosystem versions:
+>
+> - ESLint 9
+> - typescript-eslint 8
+> - Uses @stylistic rules in preparation for ESLint deprecation of formatting rules
 
 ---
 
