@@ -1,6 +1,10 @@
 *
 
-!/src/**/*
+!/base.js
+!/base.d.ts
+!/index.js
+!/index.d.ts
+!/lib/**/*
 
 !/package.json
 

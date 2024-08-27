@@ -7,20 +7,24 @@
   "homepage": "https://github.com/claabs/eslint-config-airbnb-typescript-x",
   "repository": {
     "type": "git",
-    "url": "https://github.com/claabs/eslint-config-airbnb-typescript-x.git"
+    "url": "git+https://github.com/claabs/eslint-config-airbnb-typescript-x.git"
   },
   "bugs": {
     "url": "https://github.com/claabs/eslint-config-airbnb-typescript-x/issues"
   },
+  "type": "commonjs",
   "exports": {
     ".": {
-      "default": "./src/index.js"
+      "types": "./index.d.ts",
+      "default": "./index.js"
     },
     "./base": {
-      "default": "./src/base.js"
+      "types": "./index.d.ts",
+      "default": "./base.js"
     },
     "./package.json": "./package.json"
   },
+  "main": "./index.js",
   "scripts": {
     "format": "run-s format:package format:prettier format:eslint",
     "format:eslint": "eslint --fix ./ >/dev/null 2>&1 || true",
@@ -32,7 +36,8 @@
     "validate": "npm run lint"
   },
   "dependencies": {
-    "@eslint/eslintrc": "^3.1.0"
+    "@eslint/eslintrc": "^3.1.0",
+    "@types/eslint": "^8.56.12"
   },
   "peerDependencies": {
     "@stylistic/eslint-plugin": "^2.0.0",
@@ -49,6 +54,7 @@
     }
   },
   "devDependencies": {
+    "@tsconfig/node18": "^18.2.4",
     "doctoc": "^2.2.1",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.0.11",

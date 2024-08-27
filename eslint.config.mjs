@@ -1,6 +1,6 @@
 /* eslint-disable import-x/extensions */
 import eslintConfigPrettier from 'eslint-config-prettier';
-import airbnbTs from './src/base.js';
+import airbnbTs from './base.js';
 
 export default [
   { ignores: ['node_modules/'] },
