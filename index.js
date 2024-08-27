@@ -1,10 +1,10 @@
 const { FlatCompat } = require('@eslint/eslintrc');
 const shared = require('./lib/shared');
-const { convertConfigToImportX } = require('./lib/convert-import');
+const { convertConfigs } = require('./lib/convert-configs');
 
 const compat = new FlatCompat();
 
-const config = convertConfigToImportX([
+const config = convertConfigs([
   ...compat.extends('eslint-config-airbnb'),
   ...shared,
   {

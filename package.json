@@ -26,13 +26,13 @@
     "@eslint/eslintrc": "^3.1.0"
   },
   "peerDependencies": {
-    "@stylistic/eslint-plugin": "^2.6.4",
-    "@typescript-eslint/eslint-plugin": "^8.3.0",
-    "@typescript-eslint/parser": "^8.3.0",
-    "eslint": "^8.57.0",
+    "@stylistic/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^8.57.0 || ^9.0.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import-x": "^4.0.0"
+    "eslint-plugin-import-x": "^4.1.0"
   },
   "peerDependenciesMeta": {
     "eslint-config-airbnb": {
@@ -61,5 +61,8 @@
     "javascript",
     "styleguide",
     "typescript"
-  ]
+  ],
+  "overrides": {
+    "eslint": "^8.57.0 || ^9.0.0"
+  }
 }
