@@ -1,8 +1,6 @@
 *
 
-!/base.js
-!/index.js
-!/lib/**/*
+!/src/**/*
 
 !/package.json
 

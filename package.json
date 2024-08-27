@@ -14,10 +14,10 @@
   },
   "exports": {
     ".": {
-      "default": "./index.js"
+      "default": "./src/index.js"
     },
     "./base": {
-      "default": "./base.js"
+      "default": "./src/base.js"
     },
     "./package.json": "./package.json"
   },
