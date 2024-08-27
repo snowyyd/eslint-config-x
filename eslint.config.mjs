@@ -3,18 +3,21 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import airbnbTs from './base.js';
 
 export default [
+  { ignores: ['node_modules/'] },
   ...airbnbTs,
   {
     languageOptions: {
       ecmaVersion: 2023,
-      sourceType: 'commonjs',
+      sourceType: 'module',
       parserOptions: {
         project: './tsconfig.json',
       },
     },
-    ignores: ['node_modules/'],
+  },
+  {
+    files: ['**/*.*js'],
     rules: {
-      'import-x/no-unresolved': 'off',
+      'import-x/no-unresolved': 'off', // Doesn't support imports without a "main" field
     },
   },
   eslintConfigPrettier,
