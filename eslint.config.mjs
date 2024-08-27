@@ -6,14 +6,16 @@ export default [
   ...airbnbTs,
   {
     languageOptions: {
-      ecmaVersion: 5,
-      sourceType: 'script',
-
+      ecmaVersion: 2023,
+      sourceType: 'commonjs',
       parserOptions: {
         project: './tsconfig.json',
       },
     },
     ignores: ['node_modules/'],
+    rules: {
+      'import-x/no-unresolved': 'off',
+    },
   },
   eslintConfigPrettier,
 ];
