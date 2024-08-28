@@ -19,17 +19,13 @@ Enhances Airbnb's ESLint config with TypeScript support
 > - typescript-eslint 8
 > - Uses @stylistic rules in preparation for ESLint deprecation of formatting rules
 
-## To Do
-
-- [Prettier does not yet support](https://github.com/prettier/eslint-config-prettier/pull/272) @stylistic rule overrides, which causes some formatting conflicts. Maybe remove the @stylistic replacements?
-
 ---
 
 ## Migration from eslint-config-airbnb-typescript
 
 1. Ensure that your ESLint packages are within the compatible version range, most notably:
 
-   ```json
+   ```txt
    node: >=18
    eslint: >=8.57.0
    @typescript-eslint/eslint-plugin: >=7.5.0
@@ -68,20 +64,7 @@ Enhances Airbnb's ESLint config with TypeScript support
    import airbnbTs from 'eslint-config-airbnb-typescript-x';
    ```
 
-1. For the remaining compat extends, you'll need to look at their documentation for how to import it. Here's an example with [`plugin:prettier/recommended`](https://github.com/prettier/eslint-plugin-prettier?tab=readme-ov-file#configuration-new-eslintconfigjs):
-
-   ```ts
-   import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-
-   <...>
-
-   export default [
-     <...>
-     eslintPluginPrettierRecommended, // prettier should be last
-   ];
-   ```
-
-   Here's another example for [`plugin:@typescript-eslint/recommended`](https://typescript-eslint.io/users/configs):
+1. For the remaining compat extends, you'll need to look at their documentation for how to import it. Here's an example for [`plugin:@typescript-eslint/recommended`](https://typescript-eslint.io/users/configs):
 
    ```sh
    # install typescript-eslint for flat configs
@@ -99,6 +82,32 @@ Enhances Airbnb's ESLint config with TypeScript support
      ...airbnbTs,
      ...tseslint.configs.recommended,
      <...>
+   ];
+   ```
+
+1. For Prettier plugins and configs, they [do not yet support](https://github.com/prettier/eslint-config-prettier/pull/272) disabling `@stylistic/` rules. You will need to add a custom rule list, and add its new [flat config](https://github.com/prettier/eslint-plugin-prettier?tab=readme-ov-file#configuration-new-eslintconfigjs):
+
+   ```ts
+   import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+   import eslintConfigPrettier from 'eslint-config-prettier';
+
+   const stylisticPrettierRules = () => {
+     const ruleEntries = Object.entries(eslintConfigPrettier.rules);
+     const beginningIndex = ruleEntries.findIndex(([key]) => key === 'array-bracket-newline');
+     const endingIndex = ruleEntries.findIndex(([key]) => key === 'yield-star-spacing');
+     const formattingRuleEntries = ruleEntries.slice(beginningIndex, endingIndex + 1);
+     const rules = Object.fromEntries(
+       formattingRuleEntries.map(([key, value]) => [`@stylistic/${key}`, value]),
+     );
+     return rules;
+   };
+
+   <...>
+
+   export default [
+     <...>
+     eslintPluginPrettierRecommended, // prettier should be last
+     { rules: stylisticPrettierRules() }, // Can be removed when https://github.com/prettier/eslint-config-prettier/pull/272 is resolved
    ];
    ```
 
