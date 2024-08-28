@@ -19,7 +19,104 @@ Enhances Airbnb's ESLint config with TypeScript support
 > - typescript-eslint 8
 > - Uses @stylistic rules in preparation for ESLint deprecation of formatting rules
 
+## To Do
+
+- [Prettier does not yet support](https://github.com/prettier/eslint-config-prettier/pull/272) @stylistic rule overrides, which causes some formatting conflicts. Maybe remove the @stylistic replacements?
+
 ---
+
+## Migration from eslint-config-airbnb-typescript
+
+1. Ensure that your ESLint packages are within the compatible version range, most notably:
+
+   ```json
+   node: >=18
+   eslint: >=8.57.0
+   @typescript-eslint/eslint-plugin: >=7.5.0
+   @typescript-eslint/parser: >=7.5.0
+   ```
+
+1. Run this command to bootstrap a flat config file:
+
+   ```sh
+   npx @eslint/migrate-config .eslintrc.cjs
+   ```
+
+1. Since most dependencies support flat config now, you can likely remove the `compat` variable and its dependent code. Likely you'll only need to install `globals` to replace `env: {node: true}`.
+
+   ```sh
+   npm install globals -D
+   ```
+
+1. Now you'll work through the `compat.extends` params and replace them with proper flat config imports. You can delete the `airbnb-base` and `airbnb-typescript/base` parameters, and then add the `airbnb-typescript-x` config to the array:
+
+   ```ts
+   import airbnbTs from 'eslint-config-airbnb-typescript-x/base';
+
+   <...>
+
+   export default [
+     { ignores: [<...>] },
+     ...airbnbTs,
+     <...>
+   ];
+   ```
+
+   If you used the react config, you can just use the root import:
+
+   ```ts
+   import airbnbTs from 'eslint-config-airbnb-typescript-x';
+   ```
+
+1. For the remaining compat extends, you'll need to look at their documentation for how to import it. Here's an example with [`plugin:prettier/recommended`](https://github.com/prettier/eslint-plugin-prettier?tab=readme-ov-file#configuration-new-eslintconfigjs):
+
+   ```ts
+   import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+
+   <...>
+
+   export default [
+     <...>
+     eslintPluginPrettierRecommended, // prettier should be last
+   ];
+   ```
+
+   Here's another example for [`plugin:@typescript-eslint/recommended`](https://typescript-eslint.io/users/configs):
+
+   ```sh
+   # install typescript-eslint for flat configs
+   # best to install the version that matches the @typescript-eslint/* packages
+   npm install typescript-eslint@your-version -D
+   ```
+
+   ```ts
+   import tseslint from 'typescript-eslint';
+
+   <...>
+
+   export default [
+     <...>
+     ...airbnbTs,
+     ...tseslint.configs.recommended,
+     <...>
+   ];
+   ```
+
+1. If your old config had something like `env: {es2023: true}`, you should set the `ecmaVersion` in your flat config to that value:
+
+   ```ts
+   <...>
+   ecmaVersion: 2023,
+   <...>
+   ```
+
+1. Search your codebase for any rules or `eslint-ignore`'s that start with `import/` and replace them with `import-x/`
+
+1. Uninstall the unused packages:
+
+   ```sh
+   npm rm eslint-plugin-import eslint-config-airbnb-typescript
+   ```
 
 ## Setup
 
