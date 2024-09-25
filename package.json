@@ -37,12 +37,14 @@
   "peerDependenciesMeta": {
     "eslint-config-airbnb": {
       "optional": true
+    },
+    "eslint-import-resolver-typescript": {
+      "optional": true
     }
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.4",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2"
   },
