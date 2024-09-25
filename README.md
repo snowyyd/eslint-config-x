@@ -26,7 +26,7 @@ npm install --save-dev https://github.com/n0bodysec/eslint-config-x.git
 ```ts
 // eslint.config.mjs
 
-import configX from '@n0bodysec/eslint-config-x';
+import configX from '@n0bodysec/eslint-config-x/base';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
