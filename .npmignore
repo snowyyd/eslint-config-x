@@ -5,9 +5,3 @@
 !/index.js
 !/index.d.ts
 !/lib/**/*
-
-!/package.json
-
-!/CHANGELOG.md
-!/LICENCE
-!/README.md

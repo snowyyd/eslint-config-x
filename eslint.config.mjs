@@ -14,7 +14,7 @@ const stylisticPrettierRules = () => {
 };
 
 export default [
-  { ignores: ['node_modules/'] },
+  { ignores: ['node_modules/', '.pnpm-store/'] },
   ...airbnbTs,
   {
     languageOptions: {

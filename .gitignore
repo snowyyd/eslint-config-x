@@ -1,3 +1,9 @@
+# eslint
 /.eslintcache
-/node_modules
-*.tgz
+
+# dependencies
+node_modules/
+.pnpm-store/
+
+# npm pack
+/*.tgz
