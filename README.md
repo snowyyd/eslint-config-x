@@ -13,7 +13,7 @@ Based on [Airbnb](https://github.com/airbnb/javascript), and [Airbnb TypeScript]
 npm install --save-dev
 
 # TypeScript Only!
-npm install --save-dev eslint-import-resolver-typescript
+npm install --save-dev eslint-import-resolver-typescript typescript-eslint
 ```
 
 2. Install the package:
