@@ -1,57 +1,51 @@
 {
-  "name": "@n0bodysec/eslint-config-x",
-  "version": "1.0.0",
-  "description": "Airbnb's ESLint config with TypeScript support + my personal configs",
-  "homepage": "https://github.com/n0bodysec/eslint-config-x#readme",
-  "repository": "https://github.com/n0bodysec/eslint-config-x.git",
-  "bugs": "https://github.com/n0bodysec/eslint-config-x/issues",
-  "author": "Nobody <n0bodysec0@proton.me>",
-  "license": "MIT",
-  "type": "commonjs",
-  "main": "./index.js",
-  "exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "default": "./index.js"
-    },
-    "./base": {
-      "types": "./index.d.ts",
-      "default": "./base.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "dependencies": {
-    "@eslint/eslintrc": "^3.1.0",
-    "@types/eslint": "^9.6.1"
-  },
-  "peerDependencies": {
-    "@stylistic/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.5.0 || ^8.0.0",
-    "@typescript-eslint/parser": "^7.5.0 || ^8.0.0",
-    "eslint": "^8.57.0 || ^9.0.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import-x": "^4.1.0"
-  },
-  "peerDependenciesMeta": {
-    "eslint-config-airbnb": {
-      "optional": true
-    },
-    "eslint-import-resolver-typescript": {
-      "optional": true
-    }
-  },
-  "devDependencies": {
-    "@tsconfig/node18": "^18.2.4",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.2"
-  },
-  "engines": {
-    "node": ">=18.18.0"
-  },
-  "overrides": {
-    "eslint": "^8.57.0 || ^9.0.0"
-  }
+	"name": "@n0bodysec/eslint-config-x",
+	"description": "Airbnb's ESLint config with TypeScript support + my personal configs",
+	"version": "1.0.0",
+	"homepage": "https://github.com/n0bodysec/eslint-config-x#readme",
+	"repository": "https://github.com/n0bodysec/eslint-config-x.git",
+	"bugs": "https://github.com/n0bodysec/eslint-config-x/issues",
+	"author": "Nobody <n0bodysec0@proton.me>",
+	"license": "MIT",
+	"type": "commonjs",
+	"main": "./index.js",
+	"exports": {
+		".": {
+			"types": "./index.d.ts",
+			"default": "./index.js"
+		},
+		"./base": {
+			"types": "./index.d.ts",
+			"default": "./base.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"build": "tsc",
+		"lint": "eslint ."
+	},
+	"devDependencies": {
+		"@types/eslint": "^9.6.1",
+		"@types/node": "^22.7.2",
+		"typescript": "^5.6.2",
+		"typescript-eslint": "^8.7.0"
+	},
+	"dependencies": {
+		"@eslint/eslintrc": "^3.1.0"
+	},
+	"peerDependencies": {
+		"@stylistic/eslint-plugin": "^2.8.0",
+		"@typescript-eslint/eslint-plugin": "^8.7.0",
+		"@typescript-eslint/parser": "^8.7.0",
+		"eslint": "^9.11.1",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-import-resolver-typescript": "^3.6.3",
+		"eslint-plugin-import-x": "^4.3.0"
+	},
+	"peerDependenciesMeta": {
+		"eslint-config-airbnb": {
+			"optional": true
+		}
+	}
 }

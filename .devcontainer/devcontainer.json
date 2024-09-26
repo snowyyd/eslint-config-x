@@ -12,7 +12,6 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		// "ghcr.io/devcontainers/features/docker-in-docker:2": {},
 		"ghcr.io/devcontainers-contrib/features/bash-command:1": {
 			"command": "npm install -g npm@latest pnpm@latest"
 		}
@@ -29,10 +28,7 @@
 		"vscode": {
 			"extensions": [
 				"dbaeumer.vscode-eslint",
-				"editorconfig.editorconfig",
-				"esbenp.prettier-vscode",
-				"eamodio.gitlens",
-				"ms-azuretools.vscode-docker"
+				"eamodio.gitlens"
 			]
 		}
 	}
