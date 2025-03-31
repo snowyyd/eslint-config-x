@@ -15,7 +15,7 @@ Based on [Airbnb](https://github.com/airbnb/javascript), and [Airbnb TypeScript]
 
 ```shell
 npm install --save-dev typescript-eslint
-npm install --save-dev https://github.com/n0bodysec/eslint-config-x.git
+npm install --save-dev @snowyyd/eslint-config
 ```
 
 ## ⚙️ Example Config
@@ -24,7 +24,7 @@ npm install --save-dev https://github.com/n0bodysec/eslint-config-x.git
 ```ts
 // eslint.config.mjs
 
-import configX from '@n0bodysec/eslint-config-x/base';
+import configX from '@snowyyd/eslint-config/base';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
@@ -47,7 +47,7 @@ export default tseslint.config(
 ```ts
 // eslint.config.mjs
 
-import configX from '@n0bodysec/eslint-config-x/base';
+import configX from '@snowyyd/eslint-config-x/base';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
