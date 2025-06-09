@@ -5,7 +5,7 @@
 !/index.js
 !/index.d.ts
 !/esm.d.ts
-!/esm.ts
+!/esm.js
 !/react-esm.d.ts
-!/react-esm.ts
+!/react-esm.js
 !/lib/**/*
