@@ -5,7 +5,7 @@ Based on [Airbnb](https://github.com/airbnb/javascript), and [Airbnb TypeScript]
 
 > [!IMPORTANT]
 > This configuration is not intended to be "stable" or for "public use", especially since my JavaScript standards are not widely used (e.g., brace style).  
-> There are still changes I need to make to properly migrate my [old config](https://github.com/n0bodysec/eslint-config-n0bodysec) to ESLint v9.
+> There are still changes I need to make to properly migrate my [old config](https://github.com/snowyyd/eslint-config-n0bodysec) to ESLint v9.
 >
 > If for some reason you came to this repository looking for an implementation more faithful to Airbnb standards, I recommend one of the following alternatives:
 > 1. https://github.com/claabs/eslint-config-airbnb-typescript-x
@@ -20,11 +20,14 @@ npm install --save-dev @snowyyd/eslint-config
 
 ## ⚙️ Example Config
 
+> [!TIP]
+> Example TypeScript project: https://github.com/snowyyd/typescript-template
+
 ### 🥝 TypeScript only
 ```ts
 // eslint.config.mjs
 
-import configX from '@snowyyd/eslint-config/base';
+import configX from '@snowyyd/eslint-config/esm'; // or /base for CommonJS
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
@@ -32,31 +35,38 @@ export default tseslint.config(
 	...tseslint.configs.recommendedTypeChecked,
 	...tseslint.configs.stylisticTypeChecked,
 	{
-		ignores: ['node_modules', 'dist'],
+		ignores: ['dist/**'],
 		languageOptions: {
 			parserOptions: {
-				projectService: true,
+				projectService: {
+					// add other config files below (e.g.: tsup.config.ts)
+					allowDefaultProject: ['eslint.config.mjs'],
+				},
 				tsconfigRootDir: import.meta.dirname,
 			},
 		},
 	},
 );
+
 ```
 
 ### 🍉 Mixed (JS and TS)
 ```ts
 // eslint.config.mjs
 
-import configX from '@snowyyd/eslint-config-x/base';
+import configX from '@snowyyd/eslint-config/esm';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
 	...configX,
 	{
-		ignores: ['node_modules', 'dist'],
+		ignores: ['dist/**'],
 		languageOptions: {
 			parserOptions: {
-				projectService: true,
+				projectService: {
+					// add other config files below (e.g.: tsup.config.ts)
+					allowDefaultProject: ['eslint.config.mjs'],
+				},
 				tsconfigRootDir: import.meta.dirname,
 			},
 		},
