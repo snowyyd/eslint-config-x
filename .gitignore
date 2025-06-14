@@ -1,9 +1,10 @@
-# eslint
-/.eslintcache
-
-# dependencies
+# node modules
 node_modules/
 .pnpm-store/
+
+# temporal files
+dist/
+*.tsbuildinfo
 
 # npm pack
 /*.tgz

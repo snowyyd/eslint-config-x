@@ -1,11 +1,2 @@
 *
-
-!/base.js
-!/base.d.ts
-!/index.js
-!/index.d.ts
-!/esm.d.ts
-!/esm.js
-!/react-esm.d.ts
-!/react-esm.js
-!/lib/**/*
+!dist/**/*

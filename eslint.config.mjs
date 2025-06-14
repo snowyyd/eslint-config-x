@@ -1,10 +1,11 @@
 import tseslint from 'typescript-eslint';
-import configX from './base.js'; // eslint-disable-line import-x/extensions
+import configX from './dist/index.js';
 
-export default tseslint.config(
-	...configX,
+const cfg = tseslint.config(
+	configX.configs.airbnb,
+	configX.configs.esm,
 	{
-		ignores: ['node_modules', 'dist'],
+		ignores: ['dist/**'],
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
@@ -12,11 +13,6 @@ export default tseslint.config(
 			},
 		},
 	},
-	{
-		files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
-		extends: [
-			...tseslint.configs.recommendedTypeChecked,
-			...tseslint.configs.stylisticTypeChecked,
-		],
-	},
 );
+
+export default cfg;
