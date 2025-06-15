@@ -237,7 +237,7 @@ export default {
 		}, {
 			allowSingleLineBlocks: true,
 		}],
-		'@stylistic/padding-line-between-statements': 'off',
+		// 'padding-line-between-statements': 'off',
 		'prefer-exponentiation-operator': 'error',
 		'prefer-object-spread': 'error',
 		'@stylistic/quote-props': ['error', 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
