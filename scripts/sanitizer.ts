@@ -1,3 +1,5 @@
+/* eslint-disable import-x/no-relative-packages */
+/* eslint-disable import-x/no-extraneous-dependencies */
 import stylistic from '@stylistic/eslint-plugin';
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import { builtinRules } from 'eslint/use-at-your-own-risk';
@@ -22,6 +24,7 @@ const rules = {
 		 * https://github.com/typescript-eslint/typescript-eslint/blob/de8943e98e188d83801ec1044ffc69451db1aa63/packages/eslint-plugin/src/configs/flat/all.ts#L17
 		 * tseslint exports a config containing all the rules, we extract all rules not starting with '@' so we can filter eslint rules
 		 * that are superseed with tseslint
+		 * see also https://typescript-eslint.io/rules/?=extension#rules
 		 */
 		superseed: Object.keys(tseslint.configs.all[2]?.rules ?? {}).filter((x) => !x.startsWith('@')),
 	},

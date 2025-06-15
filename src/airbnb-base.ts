@@ -9,11 +9,10 @@ import node from './rules/airbnb-base/node.ts';
 import strict from './rules/airbnb-base/strict.ts';
 import style from './rules/airbnb-base/style.ts';
 import variables from './rules/airbnb-base/variables.ts';
-import { constants } from './utils/constants.ts';
 
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	{
-		name: constants.baseName + 'airbnb-base',
+		name: '@snowyyd/eslint-config-x/airbnb-base',
 		plugins: {
 			// '@typescript-eslint': plugin,
 			'@stylistic': stylistic,

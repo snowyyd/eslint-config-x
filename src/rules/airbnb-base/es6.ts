@@ -1,9 +1,8 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import globals from 'globals';
-import { constants } from '../../utils/constants.ts';
 
 export default {
-	name: constants.airbnbBaseName + 'es6',
+	name: '@snowyyd/eslint-config-x/rules/airbnb-base/es6',
 
 	languageOptions: {
 		ecmaVersion: 6,

@@ -1,10 +1,9 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
-import { constants } from '../../utils/constants.ts';
 
 // TODO: update url comments
 
 export default {
-	name: constants.airbnbBaseName + 'style',
+	name: '@snowyyd/eslint-config-x/rules/airbnb-base/style',
 
 	rules: {
 		// TODO: enable? semver-major

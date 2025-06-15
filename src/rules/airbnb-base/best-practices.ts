@@ -1,8 +1,7 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
-import { constants } from '../../utils/constants.ts';
 
 export default {
-	name: constants.airbnbBaseName + 'best-practices',
+	name: '@snowyyd/eslint-config-x/rules/airbnb-base/best-practices',
 
 	rules: {
 		'accessor-pairs': 'off',

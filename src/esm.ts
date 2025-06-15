@@ -1,11 +1,10 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import recommended from './recommended.ts';
-import { constants } from './utils/constants.ts';
 
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	...recommended(plugin, parser),
 	{
-		name: constants.baseName + 'esm',
+		name: '@snowyyd/eslint-config-x/esm',
 		rules: {
 			// extensions are mandatory in ESM
 			'import-x/extensions': ['error', 'ignorePackages'],

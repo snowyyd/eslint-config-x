@@ -1,9 +1,8 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import confusingBrowserGlobals from 'confusing-browser-globals';
-import { constants } from '../../utils/constants.ts';
 
 export default {
-	name: constants.airbnbBaseName + 'variables',
+	name: '@snowyyd/eslint-config-x/rules/airbnb-base/variables',
 
 	rules: {
 		'init-declarations': 'off',

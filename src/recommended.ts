@@ -2,7 +2,6 @@ import eslint from '@eslint/js';
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import tseslint from 'typescript-eslint';
 import base from './base.ts';
-import { constants } from './utils/constants.ts';
 
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	...base(plugin, parser),
@@ -22,7 +21,7 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 	].map((c) => ({ files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'], ...c })),
 
 	{
-		name: constants.baseName + 'recommended',
+		name: '@snowyyd/eslint-config-x/recommended',
 
 		languageOptions: {
 			parser,
