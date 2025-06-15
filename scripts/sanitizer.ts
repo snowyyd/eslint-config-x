@@ -1,12 +1,29 @@
 /* eslint-disable import-x/no-relative-packages */
 /* eslint-disable import-x/no-extraneous-dependencies */
 import stylistic from '@stylistic/eslint-plugin';
+import tseslintRules from '@typescript-eslint/eslint-plugin/use-at-your-own-risk/rules';
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import chalk from 'chalk';
 import { builtinRules } from 'eslint/use-at-your-own-risk';
-import tseslint from 'typescript-eslint';
 import rulesTypeList from '../node_modules/eslint/conf/rule-type-list.json' with { type: 'json' };
 import { configs } from '../src/index.ts';
+
+const tselRulesEntries = Object.entries(tseslintRules);
+
+const tselExtensions = tselRulesEntries
+	.filter(([, data]) =>
+	{
+		const extendsBase = data.meta.docs.extendsBaseRule;
+		return typeof extendsBase === 'string' || extendsBase === true;
+	})
+	.map(([name, data]) => [
+		`@typescript-eslint/${name}`,
+		data.meta.docs.extendsBaseRule === true ? name : (data.meta.docs.extendsBaseRule as string),
+	]) as [ruleName: string, extendedRuleName: string][];
+
+const tselDeprecated = tselRulesEntries
+	.filter(([, data]) => data.meta.deprecated === true || typeof data.meta.deprecated === 'object')
+	.map(([name]) => `@typescript-eslint/${name}`);
 
 const rules = {
 	legacyFormatter: Object.keys(stylistic.configs['disable-legacy'].rules ?? {}),
@@ -21,13 +38,10 @@ const rules = {
 		],
 	},
 	tseslint: {
-		/**
-		 * https://github.com/typescript-eslint/typescript-eslint/blob/de8943e98e188d83801ec1044ffc69451db1aa63/packages/eslint-plugin/src/configs/flat/all.ts#L17
-		 * tseslint exports a config containing all the rules, we extract all rules not starting with '@' so we can filter eslint rules
-		 * that are superseed with tseslint
-		 * see also https://typescript-eslint.io/rules/?=extension#rules
-		 */
-		superseed: Object.keys(tseslint.configs.all[2]?.rules ?? {}).filter((x) => !x.startsWith('@')),
+		// https://typescript-eslint.io/rules/?=extension#rules
+		extensions: tselExtensions,
+		superseded: tselExtensions.map(([, k]) => k),
+		deprecated: tselDeprecated,
 	},
 };
 
@@ -67,7 +81,7 @@ function rulesChecker(pkgName: string, cfgName: string, flatRules: FlatConfig.Ru
 	const found = Object.entries(flatRules).filter((r) => list.includes(r[0]));
 	if (found.length === 0) return;
 
-	console.log(chalk.greenBright(`Config "${chalk.yellow(pkgName)} > ${chalk.yellowBright(cfgName)}" has "${chalk.cyanBright(reason)}" rules:`));
+	console.log(chalk.greenBright(`\nConfig "${chalk.yellow(pkgName)} > ${chalk.yellowBright(cfgName)}" has "${chalk.cyanBright(reason)}" rules:`));
 	console.log(chalk.blueBright('Matching files:'), files);
 
 	const output = found.map(([ruleName, data]) => formatTree([
@@ -76,29 +90,41 @@ function rulesChecker(pkgName: string, cfgName: string, flatRules: FlatConfig.Ru
 		chalk.gray(`docs: ${getRuleUrl(ruleName)}`),
 	])); // `    ${chalk.redBright(ruleName)} [ ${chalk.yellowBright(JSON.stringify(data))} ] ${chalk.gray(`(docs: ${getRuleUrl(ruleName)})`)}`).join('\n');
 
-	console.log(output.join('\n\n'), '\n\n');
+	console.log(output.join('\n\n'), '\n');
 }
 
+const analyzedConfigs = new Set<string>();
 Object.entries(configs).forEach(([name, cfg]) =>
 {
 	console.log(chalk.cyanBright(`Starting analysis of configuration "${name}"...`));
 
 	cfg.forEach((c) =>
 	{
+		if (c.name)
+		{
+			if (analyzedConfigs.has(c.name))
+			{
+				console.log(chalk.redBright(`Skipping already analyzed configuration "${c.name}"...`));
+				return;
+			}
+			analyzedConfigs.add(c.name);
+		}
+
 		const n = c.name ?? chalk.gray('(anonymous)');
 
 		if (c.rules === undefined)
 		{
-			// console.warn(chalk.yellowBright(`Config "${name}" has no defined rules for extended config "${n}". Skipping...\n\n`));
+			// console.warn(chalk.yellowBright(`Config "${name}" has no defined rules for extended config "${n}". Skipping...`));
 			return;
 		}
 
 		([
-			[rules.eslint.deprecated, 'deprecated'],
-			[rules.eslint.removed, 'removed'],
+			[rules.eslint.deprecated, 'eslint deprecated'],
+			[rules.eslint.removed, 'eslint removed'],
 			[rules.legacyFormatter, 'legacy formatter'],
-			// [rules.tseslint.superseed, 'tseslint superseed'],
+			[rules.tseslint.deprecated, 'tseslint deprecated'],
+			[rules.tseslint.superseded, 'tseslint superseded'],
 		] as const)
-			.forEach((k) => rulesChecker(name, n, c.rules!, k[0], k[1], c.files));
+			.forEach(([list, reason]) => rulesChecker(name, n, c.rules!, list, reason, c.files));
 	});
 });
