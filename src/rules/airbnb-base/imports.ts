@@ -79,7 +79,7 @@ export default {
 		'import-x/no-amd': 'error',
 		'import-x/no-nodejs-modules': 'off', // TODO: enable?
 		'import-x/first': 'error',
-		'import-x/imports-first': 'off', // ! import-x/first
+		// 'import-x/imports-first': 'off', // ! import-x/first
 		'import-x/no-duplicates': 'error',
 		// 'import-x/no-namespace': 'off', // TODO: enable?
 		'import-x/extensions': ['error', 'ignorePackages', {

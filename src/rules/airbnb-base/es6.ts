@@ -69,9 +69,7 @@ export default {
 				array: true,
 				object: false,
 			},
-		}, {
-			enforceForRenamedProperties: false,
-		}],
+		}, { enforceForRenamedProperties: false }],
 		'prefer-numeric-literals': 'error',
 		// 'prefer-reflect': 'off',
 		'prefer-rest-params': 'error',

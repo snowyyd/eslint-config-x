@@ -1,4 +1,5 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
+import nodePlugin from 'eslint-plugin-n';
 import globals from 'globals';
 
 export default {
@@ -10,17 +11,21 @@ export default {
 		},
 	},
 
+	plugins: {
+		n: nodePlugin,
+	},
+
 	rules: {
-		// 'callback-return': 'off',
-		'global-require': 'error',
-		// 'handle-callback-err': 'off',
-		'no-buffer-constructor': 'error',
-		// 'no-mixed-requires': ['off', false],
-		'no-new-require': 'error',
-		'no-path-concat': 'error',
-		// 'no-process-env': 'off',
-		// 'no-process-exit': 'off',
-		// 'no-restricted-modules': 'off',
-		// 'no-sync': 'off',
+		'n/callback-return': 'off',
+		'n/global-require': 'error',
+		'n/handle-callback-err': 'off',
+		'n/no-deprecated-api': 'error',
+		'n/no-mixed-requires': ['off', false],
+		'n/no-new-require': 'error',
+		'n/no-path-concat': 'error',
+		'n/no-process-env': 'off',
+		'n/no-process-exit': 'off',
+		'n/no-restricted-require': 'off',
+		'n/no-sync': 'off',
 	},
 } satisfies FlatConfig.Config;

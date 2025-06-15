@@ -234,9 +234,7 @@ export default {
 			blocks: 'never',
 			classes: 'never',
 			switches: 'never',
-		}, {
-			allowSingleLineBlocks: true,
-		}],
+		}, { allowSingleLineBlocks: true }],
 		// 'padding-line-between-statements': 'off',
 		'prefer-exponentiation-operator': 'error',
 		'prefer-object-spread': 'error',

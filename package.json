@@ -13,7 +13,7 @@
 		"default": "./dist/index.js"
 	},
 	"scripts": {
-		"eslint:inspect": "pnpm eslint-config-inspector",
+		"inspect": "pnpm eslint-config-inspector",
 		"lint": "pnpm eslint src/ eslint.config.mjs",
 		"build": "pnpm tsc -p tsconfig.build.json",
 		"prebuild": "rm -rf dist",
@@ -30,6 +30,7 @@
 		"confusing-browser-globals": "^1.0.11",
 		"eslint": "^9.29.0",
 		"eslint-plugin-import-x": "^4.15.2",
+		"eslint-plugin-n": "^17.20.0",
 		"globals": "^16.2.0",
 		"tsx": "^4.20.3",
 		"typescript": "^5.8.3",
@@ -40,6 +41,7 @@
 		"@stylistic/eslint-plugin": "^4.4.1",
 		"confusing-browser-globals": "^1.0.11",
 		"eslint-plugin-import-x": "^4.15.2",
+		"eslint-plugin-n": "^17.20.0",
 		"globals": "^16.2.0",
 		"typescript-eslint": "^8.34.0"
 	}
