@@ -63,6 +63,12 @@ TypeScript rules are only used in compatible files, so this configuration is per
 
 In the `recommended` preset my personal rules takes precedence over the recommended ones. Likewise, those rules take priority over the Airbnb ones. This means that Airbnb settings serve as a base, the recommended settings build on top of them, and finally my personal preferences are applied last.
 
+> [!NOTE]
+> Please note that some presets expect to be loaded after others.  
+> For example, `personal` expects that `airbnbTs` and `typescript` were loaded earlier.
+>
+> While the presets are independent, the rules themselves may not make sense separately.
+
 
 ## 📝 Changelog
 
