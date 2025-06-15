@@ -4,11 +4,13 @@ import { constants } from '../../utils/constants.ts';
 
 export default {
 	name: constants.airbnbBaseName + 'node',
+
 	languageOptions: {
 		globals: {
 			...globals.node,
 		},
 	},
+
 	rules: {
 		// enforce return after a callback
 		// https://eslint.org/docs/latest/rules/callback-return

@@ -1,9 +1,9 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
-import base from './base.ts';
+import recommended from './recommended.ts';
 import { constants } from './utils/constants.ts';
 
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
-	...base(plugin, parser),
+	...recommended(plugin, parser),
 	{
 		name: constants.baseName + 'esm',
 		rules: {

@@ -14,12 +14,18 @@ importers:
       '@stylistic/eslint-plugin':
         specifier: ^4.4.1
         version: 4.4.1(eslint@9.29.0)(typescript@5.8.3)
+      '@types/confusing-browser-globals':
+        specifier: ^1.0.3
+        version: 1.0.3
       '@types/node':
         specifier: ^24.0.1
         version: 24.0.1
       '@typescript-eslint/utils':
         specifier: ^8.34.0
         version: 8.34.0(eslint@9.29.0)(typescript@5.8.3)
+      confusing-browser-globals:
+        specifier: ^1.0.11
+        version: 1.0.11
       eslint:
         specifier: ^9.29.0
         version: 9.29.0
@@ -286,6 +292,9 @@ packages:
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
 
+  '@types/confusing-browser-globals@1.0.3':
+    resolution: {integrity: sha512-q+6axdE3RyjrSsy2ONE4UpF89rwOfpoMBP3lqJ+OzLuOeYHwP+o2GITzuleKb1UT3FSYybO8QmeACgyHleu2CA==}
+
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
@@ -503,6 +512,9 @@ packages:
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+
+  confusing-browser-globals@1.0.11:
+    resolution: {integrity: sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -1105,6 +1117,8 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+  '@types/confusing-browser-globals@1.0.3': {}
+
   '@types/estree@1.0.8': {}
 
   '@types/json-schema@7.0.15': {}
@@ -1314,6 +1328,8 @@ snapshots:
   comment-parser@1.4.1: {}
 
   concat-map@0.0.1: {}
+
+  confusing-browser-globals@1.0.11: {}
 
   cross-spawn@7.0.6:
     dependencies:

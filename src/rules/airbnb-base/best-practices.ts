@@ -3,6 +3,7 @@ import { constants } from '../../utils/constants.ts';
 
 export default {
 	name: constants.airbnbBaseName + 'best-practices',
+
 	rules: {
 		// enforces getter/setter pairs in objects
 		// https://eslint.org/docs/rules/accessor-pairs

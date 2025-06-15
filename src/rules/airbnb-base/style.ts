@@ -5,6 +5,7 @@ import { constants } from '../../utils/constants.ts';
 
 export default {
 	name: constants.airbnbBaseName + 'style',
+
 	rules: {
 		// enforce line breaks after opening and before closing array brackets
 		// TODO: enable? semver-major
@@ -428,8 +429,8 @@ export default {
 			classes: 'never',
 			switches: 'never',
 		}, {
-			allowSingleLineBlocks: true,
-		}],
+				allowSingleLineBlocks: true,
+			}],
 
 		// require or disallow padding lines between statements
 		// https://eslint.style/rules/padding-line-between-statements
