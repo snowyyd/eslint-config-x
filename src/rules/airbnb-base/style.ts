@@ -1,6 +1,8 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import { constants } from '../../utils/constants.ts';
 
+// TODO: update url comments
+
 export default {
 	name: constants.airbnbBaseName + 'style',
 	rules: {
@@ -22,6 +24,7 @@ export default {
 		'@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
 
 		// require camel case names
+		// https://eslint.org/docs/rules/camelcase
 		camelcase: ['error', { properties: 'never', ignoreDestructuring: false }],
 
 		// enforce or disallow capitalization of the first letter of a comment
@@ -72,6 +75,7 @@ export default {
 		'@stylistic/computed-property-spacing': ['error', 'never'],
 
 		// enforces consistent naming when capturing the current execution context
+		// https://eslint.org/docs/rules/consistent-this
 		'consistent-this': 'off',
 
 		// enforce newline at the end of file, with no multiple empty lines
@@ -104,7 +108,7 @@ export default {
 		'@stylistic/function-paren-newline': ['error', 'multiline-arguments'],
 
 		// disallow specified identifiers
-		// https://eslint.style/rules/id-denylist
+		// https://eslint.org/docs/rules/id-denylist
 		'id-denylist': 'off',
 
 		// this option enforces minimum and maximum identifier lengths

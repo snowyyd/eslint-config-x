@@ -21,8 +21,17 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 	{
 		name: constants.baseName + 'base',
 
+		linterOptions: {
+			reportUnusedDisableDirectives: 'error',
+			reportUnusedInlineConfigs: 'error',
+		},
+
 		languageOptions: {
 			parser,
+			parserOptions: {
+				projectService: true,
+				// tsconfigRootDir: import.meta.dirname,
+			},
 		},
 
 		plugins: {

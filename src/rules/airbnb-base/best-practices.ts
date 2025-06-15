@@ -38,7 +38,7 @@ export default {
 		// https://eslint.org/docs/rules/default-case
 		'default-case': ['error', { commentPattern: '^no default$' }],
 
-		// Enforce default clauses in switch statements to be last
+		// enforce default clauses in switch statements to be last
 		// https://eslint.org/docs/rules/default-case-last
 		'default-case-last': 'error',
 
@@ -57,7 +57,7 @@ export default {
 		// https://eslint.org/docs/rules/eqeqeq
 		eqeqeq: ['error', 'always', { null: 'ignore' }],
 
-		// Require grouped accessor pairs in object literals and classes
+		// require grouped accessor pairs in object literals and classes
 		// https://eslint.org/docs/rules/grouped-accessor-pairs
 		'grouped-accessor-pairs': 'error',
 
@@ -82,7 +82,7 @@ export default {
 		// https://eslint.org/docs/rules/no-case-declarations
 		'no-case-declarations': 'error',
 
-		// Disallow returning value in constructor
+		// disallow returning value in constructor
 		// https://eslint.org/docs/rules/no-constructor-return
 		'no-constructor-return': 'error',
 
@@ -108,7 +108,7 @@ export default {
 		// https://eslint.org/docs/rules/no-empty-pattern
 		'no-empty-pattern': 'error',
 
-		// Disallow empty static blocks
+		// disallow empty static blocks
 		// https://eslint.org/docs/latest/rules/no-empty-static-block
 		// TODO: semver-major, enable
 		'no-empty-static-block': 'off',
@@ -129,7 +129,7 @@ export default {
 		// https://eslint.org/docs/rules/no-extra-bind
 		'no-extra-bind': 'error',
 
-		// disallow Unnecessary Labels
+		// disallow unnecessary labels
 		// https://eslint.org/docs/rules/no-extra-label
 		'no-extra-label': 'error',
 
@@ -217,11 +217,11 @@ export default {
 		// https://eslint.org/docs/rules/no-new-wrappers
 		'no-new-wrappers': 'error',
 
-		// Disallow \8 and \9 escape sequences in string literals
+		// disallow \8 and \9 escape sequences in string literals
 		// https://eslint.org/docs/rules/no-nonoctal-decimal-escape
 		'no-nonoctal-decimal-escape': 'error',
 
-		// Disallow calls to the Object constructor without an argument
+		// disallow calls to the Object constructor without an argument
 		// https://eslint.org/docs/latest/rules/no-object-constructor
 		// TODO: enable, semver-major
 		'no-object-constructor': 'off',
@@ -355,7 +355,7 @@ export default {
 		// https://eslint.org/docs/rules/no-useless-call
 		'no-useless-call': 'off',
 
-		// Disallow unnecessary catch clauses
+		// disallow unnecessary catch clauses
 		// https://eslint.org/docs/rules/no-useless-catch
 		'no-useless-catch': 'error',
 
@@ -387,11 +387,11 @@ export default {
 		// https://eslint.org/docs/rules/prefer-promise-reject-errors
 		'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
 
-		// Suggest using named capture group in regular expression
+		// suggest using named capture group in regular expression
 		// https://eslint.org/docs/rules/prefer-named-capture-group
 		'prefer-named-capture-group': 'off',
 
-		// Prefer Object.hasOwn() over Object.prototype.hasOwnProperty.call()
+		// prefer Object.hasOwn() over Object.prototype.hasOwnProperty.call()
 		// https://eslint.org/docs/rules/prefer-object-has-own
 		// TODO: semver-major: enable thus rule, once eslint v8.5.0 is required
 		'prefer-object-has-own': 'off',
@@ -409,7 +409,7 @@ export default {
 		// https://eslint.org/docs/rules/require-await
 		'require-await': 'off',
 
-		// Enforce the use of u flag on RegExp
+		// enforce the use of u flag on RegExp
 		// https://eslint.org/docs/rules/require-unicode-regexp
 		'require-unicode-regexp': 'off',
 
