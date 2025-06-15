@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "include": ["src", "scripts", "eslint.config.mjs"],
+  "include": ["src", "scripts", "tests", "eslint.config.mjs"],
   // "exclude": ["node_modules/**/*", ".pnpm-store/**/*"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */

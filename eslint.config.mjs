@@ -2,7 +2,7 @@ import tseslint from 'typescript-eslint';
 import { configs } from './dist/index.js';
 
 const cfg = tseslint.config(
-	configs.airbnb,
+	configs.recommended,
 	configs.esm,
 	{
 		ignores: ['dist/**'],

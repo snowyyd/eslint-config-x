@@ -14,6 +14,7 @@
 	},
 	"scripts": {
 		"inspect": "pnpm eslint-config-inspector",
+		"inspect:test": "pnpm inspect --config tests/config.test.mjs",
 		"lint": "pnpm eslint src/ eslint.config.mjs",
 		"build": "pnpm tsc -p tsconfig.build.json",
 		"prebuild": "rm -rf dist",

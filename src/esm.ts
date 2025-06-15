@@ -1,10 +1,15 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
-import recommended from './recommended.ts';
+import importX from 'eslint-plugin-import-x';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
-	...recommended(plugin, parser),
 	{
 		name: '@snowyyd/eslint-config-x/esm',
+
+		plugins: {
+			'import-x': importX,
+		},
+
 		rules: {
 			// extensions are mandatory in ESM
 			'import-x/extensions': ['error', 'ignorePackages'],
