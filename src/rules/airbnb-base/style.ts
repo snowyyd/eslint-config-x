@@ -100,7 +100,7 @@ export default {
 				case: { after: true },
 			},
 		}],
-		'line-comment-position': ['off', { // TODO: enable?
+		'@stylistic/line-comment-position': ['off', { // TODO: enable?
 			position: 'above',
 			ignorePattern: '',
 			applyDefaultPatterns: true,
@@ -108,10 +108,13 @@ export default {
 		'@stylistic/linebreak-style': ['error', 'unix'],
 		'@stylistic/lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: false }],
 		'@stylistic/lines-around-comment': 'off',
-		'lines-around-directive': ['error', {
-			before: 'always',
-			after: 'always',
-		}],
+		'@stylistic/padding-line-between-statements': [
+			'error',
+			// TODO: check if this is correct
+			{ blankLine: 'always', prev: '*', next: 'directive' },
+			{ blankLine: 'always', prev: 'directive', next: '*' },
+			{ blankLine: 'any', prev: 'directive', next: 'directive' },
+		],
 		'logical-assignment-operators': ['off', 'always', { // TODO, semver-major: enable
 			enforceForIfStatements: true,
 		}],
@@ -138,7 +141,7 @@ export default {
 		'max-params': ['off', 3],
 		'max-statements': ['off', 10],
 		'@stylistic/max-statements-per-line': ['off', { max: 1 }],
-		'multiline-comment-style': ['off', 'starred-block'],
+		'@stylistic/multiline-comment-style': ['off', 'starred-block'],
 		'@stylistic/multiline-ternary': ['off', 'never'], // TODO: enable?
 		'new-cap': ['error', {
 			newIsCap: true,
@@ -147,8 +150,8 @@ export default {
 			capIsNewExceptions: ['Immutable.Map', 'Immutable.Set', 'Immutable.List'],
 		}],
 		'@stylistic/new-parens': 'error',
-		'newline-after-var': 'off',
-		'newline-before-return': 'off',
+		// 'newline-after-var': 'off',
+		// 'newline-before-return': 'off',
 		'@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: 4 }],
 		'no-array-constructor': 'error',
 		'no-bitwise': 'error',
@@ -176,7 +179,7 @@ export default {
 		'@stylistic/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
 		'no-negated-condition': 'off',
 		'no-nested-ternary': 'error',
-		'no-new-object': 'error',
+		// 'no-new-object': 'error', // ! no-object-constructor in best-practices.ts
 		'no-plusplus': 'error',
 		'no-restricted-syntax': [
 			'error',
@@ -197,7 +200,7 @@ export default {
 				message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
 			},
 		],
-		'no-spaced-func': 'off',
+		// 'no-spaced-func': 'off',
 		'@stylistic/no-tabs': 'error',
 		'no-ternary': 'off',
 		'@stylistic/no-trailing-spaces': ['error', {
@@ -239,7 +242,7 @@ export default {
 		'prefer-object-spread': 'error',
 		'@stylistic/quote-props': ['error', 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
 		'@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
-		'require-jsdoc': 'off',
+		// 'require-jsdoc': 'off',
 		'@stylistic/semi': ['error', 'always'],
 		'@stylistic/semi-spacing': ['error', { before: false, after: true }],
 		'@stylistic/semi-style': ['error', 'last'],

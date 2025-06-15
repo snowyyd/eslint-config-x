@@ -40,7 +40,7 @@ export default {
 		'no-loss-of-precision': 'error',
 		'no-misleading-character-class': 'error',
 		'no-obj-calls': 'error',
-		'no-new-native-nonconstructor': 'off', // TODO: semver-major, enable
+		// 'no-new-native-nonconstructor': 'off', // ! in es6.ts
 		'no-promise-executor-return': 'error',
 		'no-prototype-builtins': 'error',
 		'no-regex-spaces': 'error',
@@ -57,10 +57,10 @@ export default {
 		'no-unsafe-optional-chaining': ['error', { disallowArithmeticOperators: true }],
 		'no-unused-private-class-members': 'off', // TODO: enable once eslint 7 is dropped (which is semver-major)
 		'no-useless-backreference': 'error',
-		'no-negated-in-lhs': 'off',
+		// 'no-negated-in-lhs': 'off',
 		'require-atomic-updates': 'off', // ! note: not enabled because it is very buggy
 		'use-isnan': 'error',
-		'valid-jsdoc': 'off',
+		// 'valid-jsdoc': 'off',
 		'valid-typeof': ['error', { requireStringLiterals: true }],
 	},
 } satisfies FlatConfig.Config;

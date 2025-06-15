@@ -26,6 +26,7 @@
 		"@types/confusing-browser-globals": "^1.0.3",
 		"@types/node": "^24.0.1",
 		"@typescript-eslint/utils": "^8.34.0",
+		"chalk": "^5.4.1",
 		"confusing-browser-globals": "^1.0.11",
 		"eslint": "^9.29.0",
 		"eslint-plugin-import-x": "^4.15.2",

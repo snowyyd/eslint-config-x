@@ -10,6 +10,7 @@ import strict from './rules/airbnb-base/strict.ts';
 import style from './rules/airbnb-base/style.ts';
 import variables from './rules/airbnb-base/variables.ts';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	{
 		name: '@snowyyd/eslint-config-x/airbnb-base',

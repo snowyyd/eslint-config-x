@@ -31,7 +31,7 @@ export default {
 		'no-const-assign': 'error',
 		'no-dupe-class-members': 'error',
 		'no-duplicate-imports': 'off', // ! import-x/no-duplicates
-		'no-new-symbol': 'error',
+		'no-new-native-nonconstructor': 'error',
 		'no-restricted-exports': ['error', {
 			restrictedNamedExports: [
 				'default', // use `export default` to provide a default export
@@ -73,7 +73,7 @@ export default {
 			enforceForRenamedProperties: false,
 		}],
 		'prefer-numeric-literals': 'error',
-		'prefer-reflect': 'off',
+		// 'prefer-reflect': 'off',
 		'prefer-rest-params': 'error',
 		'prefer-spread': 'error',
 		'prefer-template': 'error',

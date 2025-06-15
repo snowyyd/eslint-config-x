@@ -2,6 +2,7 @@ import stylistic from '@stylistic/eslint-plugin';
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import importX from 'eslint-plugin-import-x';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	{
 		name: '@snowyyd/eslint-config-x/base',

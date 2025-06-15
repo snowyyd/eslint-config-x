@@ -43,7 +43,7 @@ export default {
 		'no-fallthrough': 'error',
 		'@stylistic/no-floating-decimal': 'error',
 		'no-global-assign': ['error', { exceptions: [] }],
-		'no-native-reassign': 'off',
+		// 'no-native-reassign': 'off',
 		'no-implicit-coercion': ['off', {
 			boolean: false,
 			number: true,
@@ -69,7 +69,7 @@ export default {
 		'no-new-func': 'error',
 		'no-new-wrappers': 'error',
 		'no-nonoctal-decimal-escape': 'error',
-		'no-object-constructor': 'off', // TODO: enable, semver-major
+		'no-object-constructor': 'error',
 		'no-octal': 'error',
 		'no-octal-escape': 'error',
 		'no-param-reassign': ['error', {

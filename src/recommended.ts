@@ -35,6 +35,9 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			'import-x/no-dynamic-require': 'off',
 			'import-x/prefer-default-export': 'off',
 
+			// no longer needed: https://eslint.org/docs/latest/rules/no-return-await
+			'no-return-await': 'off',
+
 			'prefer-template': 'off',
 			'prefer-destructuring': 'off',
 			'prefer-arrow-callback': 'off',
