@@ -15,6 +15,8 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 	...[
 		tseslint.configs.base,
 		tseslint.configs.eslintRecommended,
+		// both `recommendedTypeChecked` and `stylisticTypeChecked` extends `base` and `eslintRecommended`
+		// so skip these rules using the [] operator
 		tseslint.configs.recommendedTypeChecked[2] ?? tseslint.configs.recommendedTypeChecked,
 		tseslint.configs.stylisticTypeChecked[2] ?? tseslint.configs.stylisticTypeChecked,
 	].map((c) => ({ files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'], ...c })),

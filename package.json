@@ -15,8 +15,9 @@
 	"scripts": {
 		"eslint:inspect": "pnpm eslint-config-inspector",
 		"lint": "pnpm eslint src/ eslint.config.mjs",
+		"build": "pnpm tsc -p tsconfig.build.json",
 		"prebuild": "rm -rf dist",
-		"build": "pnpm tsc -p tsconfig.build.json"
+		"prepack": "pnpm build"
 	},
 	"devDependencies": {
 		"@eslint/config-inspector": "^1.1.0",

@@ -13,7 +13,7 @@ import { constants } from './utils/constants.ts';
 
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	{
-		name: constants.baseName + 'airbnb',
+		name: constants.baseName + 'airbnb-base',
 		plugins: {
 			// '@typescript-eslint': plugin,
 			'@stylistic': stylistic,
