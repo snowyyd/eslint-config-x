@@ -429,8 +429,8 @@ export default {
 			classes: 'never',
 			switches: 'never',
 		}, {
-				allowSingleLineBlocks: true,
-			}],
+			allowSingleLineBlocks: true,
+		}],
 
 		// require or disallow padding lines between statements
 		// https://eslint.style/rules/padding-line-between-statements

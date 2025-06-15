@@ -1,9 +1,9 @@
 import tseslint from 'typescript-eslint';
-import configX from './dist/index.js';
+import { configs } from './dist/index.js';
 
 const cfg = tseslint.config(
-	configX.configs.airbnb,
-	configX.configs.esm,
+	configs.airbnb,
+	configs.esm,
 	{
 		ignores: ['dist/**'],
 		languageOptions: {
