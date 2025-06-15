@@ -29,27 +29,27 @@ export default {
 		}],
 
 		// require parens in arrow function arguments
-		// https://eslint.org/docs/rules/arrow-parens
-		'arrow-parens': ['error', 'always'],
+		// https://eslint.style/rules/arrow-parens
+		'@stylistic/arrow-parens': ['error', 'always'],
 
 		// require space before/after arrow function's arrow
-		// https://eslint.org/docs/rules/arrow-spacing
-		'arrow-spacing': ['error', { before: true, after: true }],
+		// https://eslint.style/rules/arrow-spacing
+		'@stylistic/arrow-spacing': ['error', { before: true, after: true }],
 
 		// verify super() callings in constructors
 		'constructor-super': 'error',
 
 		// enforce the spacing around the * in generator functions
-		// https://eslint.org/docs/rules/generator-star-spacing
-		'generator-star-spacing': ['error', { before: false, after: true }],
+		// https://eslint.style/rules/generator-star-spacing
+		'@stylistic/generator-star-spacing': ['error', { before: false, after: true }],
 
 		// disallow modifying variables of class declarations
 		// https://eslint.org/docs/rules/no-class-assign
 		'no-class-assign': 'error',
 
 		// disallow arrow functions where they could be confused with comparisons
-		// https://eslint.org/docs/rules/no-confusing-arrow
-		'no-confusing-arrow': ['error', {
+		// https://eslint.style/rules/no-confusing-arrow
+		'@stylistic/no-confusing-arrow': ['error', {
 			allowParens: true,
 		}],
 
@@ -139,8 +139,8 @@ export default {
 				object: false,
 			},
 		}, {
-				enforceForRenamedProperties: false,
-			}],
+			enforceForRenamedProperties: false,
+		}],
 
 		// disallow parseInt() in favor of binary, octal, and hexadecimal literals
 		// https://eslint.org/docs/rules/prefer-numeric-literals
@@ -167,8 +167,8 @@ export default {
 		'require-yield': 'error',
 
 		// enforce spacing between object rest-spread
-		// https://eslint.org/docs/rules/rest-spread-spacing
-		'rest-spread-spacing': ['error', 'never'],
+		// https://eslint.style/rules/rest-spread-spacing
+		'@stylistic/rest-spread-spacing': ['error', 'never'],
 
 		// import sorting
 		// https://eslint.org/docs/rules/sort-imports
@@ -184,11 +184,11 @@ export default {
 		'symbol-description': 'error',
 
 		// enforce usage of spacing in template strings
-		// https://eslint.org/docs/rules/template-curly-spacing
-		'template-curly-spacing': 'error',
+		// https://eslint.style/rules/template-curly-spacing
+		'@stylistic/template-curly-spacing': 'error',
 
 		// enforce spacing around the * in yield* expressions
-		// https://eslint.org/docs/rules/yield-star-spacing
-		'yield-star-spacing': ['error', 'after'],
+		// https://eslint.style/rules/yield-star-spacing
+		'@stylistic/yield-star-spacing': ['error', 'after'],
 	},
 } satisfies FlatConfig.Config;
