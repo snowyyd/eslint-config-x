@@ -39,6 +39,7 @@ export const rules = {
 		extensions: tselExtensions,
 		superseded: tselExtensions.map(([, k]) => k),
 		deprecated: tselDeprecated,
+		// TODO: add superseded without deprecated rules
 	},
 	airbnb: mergeRulesStrictly(Object.values(configs.airbnb).map((x) => x.rules)),
 };

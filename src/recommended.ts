@@ -1,12 +1,11 @@
 import eslint from '@eslint/js';
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
-import airbnbBase from './airbnb-base.ts';
+import airbnbTs from './airbnb-ts.ts';
 import personal from './personal.ts';
 import typescript from './typescript.ts';
 
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
-	// TODO: fix js rules for ts
-	...airbnbBase(plugin, parser),
+	...airbnbTs(plugin, parser),
 
 	// recommended JavaScript
 	{
