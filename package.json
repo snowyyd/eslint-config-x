@@ -13,11 +13,13 @@
 		"default": "./dist/index.js"
 	},
 	"scripts": {
+		"eslint:inspect": "pnpm eslint-config-inspector",
 		"lint": "pnpm eslint src/ eslint.config.mjs",
 		"prebuild": "rm -rf dist",
 		"build": "pnpm tsc -p tsconfig.build.json"
 	},
 	"devDependencies": {
+		"@eslint/config-inspector": "^1.1.0",
 		"@eslint/js": "^9.29.0",
 		"@stylistic/eslint-plugin": "^4.4.1",
 		"@types/confusing-browser-globals": "^1.0.3",

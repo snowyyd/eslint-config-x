@@ -6,17 +6,18 @@ import { constants } from './utils/constants.ts';
 
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	...base(plugin, parser),
-	eslint.configs.recommended,
 
-	...tseslint.config(
-		{
-			files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts', 'abc'],
-			extends: [
-				tseslint.configs.recommendedTypeChecked,
-				tseslint.configs.stylisticTypeChecked,
-			],
-		},
-	),
+	{
+		name: 'eslint/eslint-recommended',
+		...eslint.configs.recommended,
+	},
+
+	...[
+		tseslint.configs.base,
+		tseslint.configs.eslintRecommended,
+		tseslint.configs.recommendedTypeChecked[2] ?? tseslint.configs.recommendedTypeChecked,
+		tseslint.configs.stylisticTypeChecked[2] ?? tseslint.configs.stylisticTypeChecked,
+	].map((c) => ({ files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'], ...c })),
 
 	{
 		name: constants.baseName + 'recommended',

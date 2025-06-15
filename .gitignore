@@ -5,6 +5,7 @@ node_modules/
 # temporal files
 dist/
 *.tsbuildinfo
+/eslint.config.bundled_*.mjs
 
 # npm pack
 /*.tgz
