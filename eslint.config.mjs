@@ -13,6 +13,13 @@ const cfg = tseslint.config(
 			},
 		},
 	},
+	{
+		files: ['scripts/**/*.ts'],
+		rules: {
+			'import-x/no-relative-packages': 'off',
+			'import-x/no-extraneous-dependencies': 'off',
+		},
+	},
 );
 
 export default cfg;

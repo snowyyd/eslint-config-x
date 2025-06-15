@@ -1,80 +1,8 @@
-/* eslint-disable import-x/no-relative-packages */
-/* eslint-disable import-x/no-extraneous-dependencies */
-import stylistic from '@stylistic/eslint-plugin';
-import tseslintRules from '@typescript-eslint/eslint-plugin/use-at-your-own-risk/rules';
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import chalk from 'chalk';
-import { builtinRules } from 'eslint/use-at-your-own-risk';
-import rulesTypeList from '../node_modules/eslint/conf/rule-type-list.json' with { type: 'json' };
 import { configs } from '../src/index.ts';
-
-const tselRulesEntries = Object.entries(tseslintRules);
-
-const tselExtensions = tselRulesEntries
-	.filter(([, data]) =>
-	{
-		const extendsBase = data.meta.docs.extendsBaseRule;
-		return typeof extendsBase === 'string' || extendsBase === true;
-	})
-	.map(([name, data]) => [
-		`@typescript-eslint/${name}`,
-		data.meta.docs.extendsBaseRule === true ? name : (data.meta.docs.extendsBaseRule as string),
-	]) as [ruleName: string, extendedRuleName: string][];
-
-const tselDeprecated = tselRulesEntries
-	.filter(([, data]) => data.meta.deprecated === true || typeof data.meta.deprecated === 'object')
-	.map(([name]) => `@typescript-eslint/${name}`);
-
-const rules = {
-	legacyFormatter: Object.keys(stylistic.configs['disable-legacy'].rules ?? {}),
-	eslint: {
-		removed: rulesTypeList.removed.map((x) => x.removed),
-		deprecated: [
-			...[...builtinRules.entries()]
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				.filter(([_, rule]) => rule.meta?.deprecated)
-				.map(([name]) => name),
-			...rulesTypeList.deprecated,
-		],
-	},
-	tseslint: {
-		// https://typescript-eslint.io/rules/?=extension#rules
-		extensions: tselExtensions,
-		superseded: tselExtensions.map(([, k]) => k),
-		deprecated: tselDeprecated,
-	},
-};
-
-function getRuleUrl(ruleName: string)
-{
-	const match = /^(?:(?<plugin>@?[\w-]+)\/)?(?<rule>.+)$/.exec(ruleName);
-	if (!match) return undefined;
-
-	const plugin = match.groups?.plugin;
-
-	const baseUrls: Record<string, string> = {
-		eslint: 'https://eslint.org/docs/rules/',
-		'@typescript-eslint': 'https://typescript-eslint.io/rules/',
-		'@stylistic': 'https://eslint.style/rules/',
-		'import-x': 'https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/',
-		n: 'https://github.com/eslint-community/eslint-plugin-n/tree/master/docs/rules/',
-	};
-
-	const base = baseUrls[plugin ?? 'eslint'];
-	return base ? base + ruleName : undefined;
-}
-
-function formatTree(items: string[])
-{
-	return items
-		.map((item, index) =>
-		{
-			const isLast = index === items.length - 1;
-			const prefix = isLast ? '  └─ ' : '  ├─ ';
-			return prefix + item;
-		})
-		.join('\n');
-}
+import { formatTree, getRuleUrl } from './utils/functions.ts';
+import { rules } from './utils/rules.ts';
 
 function rulesChecker(pkgName: string, cfgName: string, flatRules: FlatConfig.Rules, list: string[], reason: string, files?: FlatConfig.Config['files'])
 {
@@ -88,7 +16,7 @@ function rulesChecker(pkgName: string, cfgName: string, flatRules: FlatConfig.Ru
 		chalk.redBright(ruleName),
 		chalk.yellowBright('value: ' + JSON.stringify(data)),
 		chalk.gray(`docs: ${getRuleUrl(ruleName)}`),
-	])); // `    ${chalk.redBright(ruleName)} [ ${chalk.yellowBright(JSON.stringify(data))} ] ${chalk.gray(`(docs: ${getRuleUrl(ruleName)})`)}`).join('\n');
+	]));
 
 	console.log(output.join('\n\n'), '\n');
 }
