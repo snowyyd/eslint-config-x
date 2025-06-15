@@ -5,9 +5,9 @@ import es6 from './rules/airbnb-base/es6.ts';
 import style from './rules/airbnb-base/style.ts';
 import variables from './rules/airbnb-base/variables.ts';
 
-function replaceRule(ruleName: string, baseConfig: FlatConfig.Config, newName?: string) 
+function replaceRule(ruleName: string, baseConfig: FlatConfig.Config, newName?: string)
 {
-	if (!baseConfig.rules || !(ruleName in (baseConfig.rules))) 
+	if (!baseConfig.rules || !(ruleName in (baseConfig.rules)))
 	{
 		throw new Error('invalid rule data for ' + ruleName);
 	}
@@ -52,6 +52,6 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			// ...replaceRule('no-restricted-imports', es6),
 			...replaceRule('no-useless-constructor', es6),
 			...replaceRule('prefer-destructuring', es6),
-		}
+		},
 	},
 ];
