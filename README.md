@@ -40,7 +40,28 @@ npm install -save-dev eslint
 npm install --save-dev @snowyyd/eslint-config
 ```
 
-3. You are done with the installation. Now proceed to create a configuration file, you can check a nice example [here](eslint.config.mjs).
+3. Create an ESLint config file `eslint.config.mjs` in the root folder of your project. You can use the following as an example:
+```js
+// @ts-check
+
+/* eslint-disable import-x/no-extraneous-dependencies */
+import { configs } from '@snowyyd/eslint-config';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+	configs.recommended,
+	configs.esm,
+	{
+		ignores: ['dist/**'],
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+				tsconfigRootDir: import.meta.dirname,
+			},
+		},
+	},
+);
+```
 
 
 ## 🍉 Exported presets
