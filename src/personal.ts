@@ -48,7 +48,7 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			'no-continue': 'off',
 
 			'no-restricted-globals': shared.rules['no-restricted-globals'],
-
+			'no-restricted-properties': 'off',
 			'no-restricted-syntax': [
 				'error',
 				{
