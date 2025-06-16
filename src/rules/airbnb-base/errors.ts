@@ -2,7 +2,6 @@ import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 
 export default {
 	name: '@snowyyd/eslint-config-x/rules/airbnb-base/errors',
-
 	rules: {
 		'for-direction': 'error',
 		'getter-return': ['error', { allowImplicit: true }],
@@ -34,7 +33,6 @@ export default {
 		'no-func-assign': 'error',
 		'no-import-assign': 'error',
 		'no-inner-declarations': 'error',
-
 		'no-invalid-regexp': 'error',
 		'no-irregular-whitespace': 'error',
 		'no-loss-of-precision': 'error',

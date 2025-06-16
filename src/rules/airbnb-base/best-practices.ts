@@ -2,7 +2,6 @@ import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 
 export default {
 	name: '@snowyyd/eslint-config-x/rules/airbnb-base/best-practices',
-
 	rules: {
 		'accessor-pairs': 'off',
 		'array-callback-return': ['error', { allowImplicit: true }],

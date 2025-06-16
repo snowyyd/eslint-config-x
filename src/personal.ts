@@ -5,7 +5,6 @@ import importX from 'eslint-plugin-import-x';
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	{
 		name: '@snowyyd/eslint-config-x/personal',
-
 		languageOptions: {
 			parser,
 			parserOptions: {
@@ -13,13 +12,11 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 				// tsconfigRootDir: import.meta.dirname,
 			},
 		},
-
 		plugins: {
 			'@typescript-eslint': plugin,
 			'@stylistic': stylistic,
 			'import-x': importX,
 		},
-
 		rules: {
 			/**
 			 * imports

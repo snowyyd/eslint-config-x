@@ -5,11 +5,9 @@ import importX from 'eslint-plugin-import-x';
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	{
 		name: '@snowyyd/eslint-config-x/esm',
-
 		plugins: {
 			'import-x': importX,
 		},
-
 		rules: {
 			// extensions are mandatory in ESM
 			'import-x/extensions': ['error', 'ignorePackages'],

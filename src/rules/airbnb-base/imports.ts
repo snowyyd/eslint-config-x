@@ -4,7 +4,6 @@ import globals from 'globals';
 
 export default {
 	name: '@snowyyd/eslint-config-x/rules/airbnb-base/imports',
-
 	languageOptions: {
 		ecmaVersion: 6,
 		sourceType: 'module',
@@ -12,32 +11,26 @@ export default {
 			...globals.es2015,
 		},
 	},
-
 	plugins: {
 		'import-x': importX,
 	},
-
 	settings: {
 		'import-x/resolver': {
 			node: {
 				extensions: ['.mjs', '.js', '.json'],
 			},
 		},
-
 		'import-x/extensions': [
 			'.js',
 			'.mjs',
 			'.jsx',
 		],
-
 		'import-x/core-modules': [],
-
 		'import-x/ignore': [
 			'node_modules',
 			'\\.(coffee|scss|css|less|hbs|svg|json)$',
 		],
 	},
-
 	rules: {
 		'import-x/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
 		'import-x/named': 'error',

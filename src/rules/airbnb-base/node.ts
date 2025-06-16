@@ -4,17 +4,14 @@ import globals from 'globals';
 
 export default {
 	name: '@snowyyd/eslint-config-x/rules/airbnb-base/node',
-
 	languageOptions: {
 		globals: {
 			...globals.node,
 		},
 	},
-
 	plugins: {
 		n: nodePlugin,
 	},
-
 	rules: {
 		'n/callback-return': 'off',
 		'n/global-require': 'error',

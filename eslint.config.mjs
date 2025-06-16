@@ -1,7 +1,7 @@
 import tseslint from 'typescript-eslint';
 import { configs } from './dist/index.js';
 
-const cfg = tseslint.config(
+export default tseslint.config(
 	configs.recommended,
 	configs.esm,
 	{
@@ -21,5 +21,3 @@ const cfg = tseslint.config(
 		},
 	},
 );
-
-export default cfg;

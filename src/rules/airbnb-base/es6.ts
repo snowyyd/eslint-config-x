@@ -3,14 +3,12 @@ import globals from 'globals';
 
 export default {
 	name: '@snowyyd/eslint-config-x/rules/airbnb-base/es6',
-
 	languageOptions: {
 		ecmaVersion: 6,
 		sourceType: 'module',
 		globals: {
 			...globals.es2015,
 		},
-
 		parserOptions: {
 			ecmaFeatures: {
 				generators: false,
@@ -18,7 +16,6 @@ export default {
 			},
 		},
 	},
-
 	rules: {
 		// TODO: enable requireReturnForObjectLiteral?
 		'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: false }],

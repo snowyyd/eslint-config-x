@@ -22,7 +22,6 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 	...airbnbBase(plugin, parser),
 	{
 		name: '@snowyyd/eslint-config-x/airbnb-ts',
-
 		files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
 		rules: {
 			...replaceRule('class-methods-use-this', bestPractices),

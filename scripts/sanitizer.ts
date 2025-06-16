@@ -4,9 +4,17 @@ import { configs } from '../src/index.ts';
 import { formatTree, getRuleUrl } from './utils/functions.ts';
 import { rules } from './utils/rules.ts';
 
-function rulesChecker(pkgName: string, cfgName: string, flatRules: FlatConfig.Rules, list: string[], reason: string, files?: FlatConfig.Config['files'])
+function rulesChecker(pkgName: string, cfgName: string, flatRules: FlatConfig.Rules, list: string[], reason: string, excludeOff?: boolean, files?: FlatConfig.Config['files'])
 {
-	const found = Object.entries(flatRules).filter((r) => list.includes(r[0]));
+	let found = Object.entries(flatRules).filter(([ruleName]) => list.includes(ruleName));
+
+	if (excludeOff)
+	{
+		// ESLint allows severithy to be a number too
+		// https://eslint.org/docs/latest/use/configure/rules#rule-severities
+		found = found.filter(([, data]) => !(data === 'off' || (Array.isArray(data) && data[0] === 'off')));
+	}
+
 	if (found.length === 0) return;
 
 	console.log(chalk.greenBright(`\nConfig "${chalk.yellow(pkgName)} > ${chalk.yellowBright(cfgName)}" has "${chalk.cyanBright(reason)}" rules:`));
@@ -53,6 +61,6 @@ Object.entries(configs).forEach(([name, cfg]) =>
 			[rules.tseslint.deprecated, 'tseslint deprecated'],
 			[rules.tseslint.superseded, 'tseslint superseded'],
 		] as const)
-			.forEach(([list, reason]) => rulesChecker(name, n, c.rules!, list, reason, c.files));
+			.forEach(([list, reason]) => rulesChecker(name, n, c.rules!, list, reason, true, c.files));
 	});
 });

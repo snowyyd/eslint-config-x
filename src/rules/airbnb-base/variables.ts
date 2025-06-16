@@ -3,7 +3,6 @@ import confusingBrowserGlobals from 'confusing-browser-globals';
 
 export default {
 	name: '@snowyyd/eslint-config-x/rules/airbnb-base/variables',
-
 	rules: {
 		'init-declarations': 'off',
 		// 'no-catch-shadow': 'off',

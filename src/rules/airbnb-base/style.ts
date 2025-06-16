@@ -1,10 +1,7 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 
-// TODO: update url comments
-
 export default {
 	name: '@snowyyd/eslint-config-x/rules/airbnb-base/style',
-
 	rules: {
 		// TODO: enable? semver-major
 		'@stylistic/array-bracket-newline': ['off', 'consistent'], // object option alternative: { multiline: true, minItems: 3 }
