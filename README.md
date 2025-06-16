@@ -1,85 +1,95 @@
 # eslint-config-x
 
-An [ESLint](https://eslint.org/) configuration I use in personal JavaScript/TypeScript projects.  
-Based on [Airbnb](https://github.com/airbnb/javascript), and [Airbnb TypeScript](https://github.com/claabs/eslint-config-airbnb-typescript-x).
+
+**eslint-config-x** is a modern, modular ESLint configuration inspired by the widely-used [Airbnb style guide](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base), rewritten entirely using [FlatConfig](https://eslint.org/docs/latest/use/configure/configuration-files) — the new configuration format introduced in ESLint v9.  
+This package offers optional TypeScript support, a handful of well curated extra configurations, as well as a personal config.
+
+
+## ✨ Why use this?
+- 📦 **FlatConfig ready** — designed for ESLint v9+
+- 🧼 **Airbnb base rules** — familiar, community-tested style
+- ✨ **Airbnb-style, modernized** — no more deprecated rules
+- 🧠 **Optional TypeScript support** — no assumptions about your stack
+- 🧩 **Use only what you need** — configurations are exported individually and can be composed freely
+- 🚧 **Includes my very personal config** — for advanced tinkering (not for public use)
+
 
 > [!IMPORTANT]
-> This configuration is not intended to be "stable" or for "public use", especially since my JavaScript standards are not widely used (e.g., brace style).  
-> There are still changes I need to make to properly migrate my [old config](https://github.com/snowyyd/eslint-config-n0bodysec) to ESLint v9.
+> #### Looking for a more faithful Airbnb FlatConfig conversion?
+> If you landed here expecting a closer 1:1 conversion of the original `eslint-config-airbnb-base` (including legacy or deprecated rules), this config may not be what you're looking for — it makes modernizing decisions and drops outdated patterns.
 >
-> If for some reason you came to this repository looking for an implementation more faithful to Airbnb standards, I recommend one of the following alternatives:
-> 1. https://github.com/claabs/eslint-config-airbnb-typescript-x
-> 2. https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript
+> Instead, check out these alternatives:
+>
+> - https://github.com/claabs/eslint-config-airbnb-typescript-x
+> - https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript
+> - The `v1` branch of this repository is based on the @claabs's implementation (this repository was a fork).
 
-## 🚀 Usage
 
-```shell
-npm install --save-dev typescript-eslint
+## 🚀 Quick Start
+
+> [!TIP]
+> Please verify that your package manager correctly installs the “peerDependencies”.
+
+1. First, install eslint if it's not yet installed (locally or globally).
+```bash
+npm install -save-dev eslint
+```
+
+2. Then, install the package as a development dependency.
+```bash
 npm install --save-dev @snowyyd/eslint-config
 ```
 
-## ⚙️ Example Config
+3. Create an ESLint config file `eslint.config.mjs` in the root folder of your project. You can use the following as an example:
+```js
+// @ts-check
 
-> [!TIP]
-> Example TypeScript project: https://github.com/snowyyd/typescript-template
-
-### 🥝 TypeScript only
-```ts
-// eslint.config.mjs
-
-import configX from '@snowyyd/eslint-config/esm'; // or /base for CommonJS
+/* eslint-disable import-x/no-extraneous-dependencies */
+import { configs } from '@snowyyd/eslint-config';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-	...configX,
-	...tseslint.configs.recommendedTypeChecked,
-	...tseslint.configs.stylisticTypeChecked,
+	configs.recommended,
+	configs.esm,
 	{
 		ignores: ['dist/**'],
 		languageOptions: {
 			parserOptions: {
-				projectService: {
-					// add other config files below (e.g.: tsup.config.ts)
-					allowDefaultProject: ['eslint.config.mjs'],
-				},
+				projectService: true,
 				tsconfigRootDir: import.meta.dirname,
 			},
 		},
 	},
 );
-
 ```
 
-### 🍉 Mixed (JS and TS)
-```ts
-// eslint.config.mjs
 
-import configX from '@snowyyd/eslint-config/esm';
-import tseslint from 'typescript-eslint';
-
-export default tseslint.config(
-	...configX,
-	{
-		ignores: ['dist/**'],
-		languageOptions: {
-			parserOptions: {
-				projectService: {
-					// add other config files below (e.g.: tsup.config.ts)
-					allowDefaultProject: ['eslint.config.mjs'],
-				},
-				tsconfigRootDir: import.meta.dirname,
-			},
-		},
-	},
-	{
-		files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
-		extends: [
-			...tseslint.configs.recommendedTypeChecked,
-			...tseslint.configs.stylisticTypeChecked,
-		],
-	},
-);
+## 🍉 Exported presets
+Each preset is conveniently exported in a “configs” object, as well as part of the default export.
+```typescript
+import { configs } from '@snowyyd/eslint-config';
+import configX from '@snowyyd/eslint-config'; // access configs on configsX.configs
 ```
+
+The list of presets includes:
+- `recommended`: The main preset for this project. It includes all the Airbnb rules, as well as the recommended eslint, typescript-eslint, recommended typed linting and stylistic presets.
+- `esm`: Extra rules for ESM projects.
+- `airbnb`: Airbnb configuration exported for convenience, without any additions (only with updated rules).
+- `airbnbTs`: The Airbnb configuration with fully TypeScript support.
+- `personal`: My personal rules that I usually apply over the Airbnb ones.
+- `typescript`: The recommended typescript-eslint rules (with typed linting and stylistic type linting).
+
+The `recommended` preset extends the rules in the following order: `airbnbTs > eslint-recommended > typescript > personal`.  
+TypeScript rules are only used in compatible files, so this configuration is perfectly safe for JavaScript projects.
+
+In the `recommended` preset my personal rules takes precedence over the recommended ones. Likewise, those rules take priority over the Airbnb ones. This means that Airbnb settings serve as a base, the recommended settings build on top of them, and finally my personal preferences are applied last.
+
+> [!NOTE]
+> Please note that some presets expect to be loaded after others.  
+> For example, `personal` expects that `airbnbTs` and `typescript` were loaded earlier.
+>
+> While the presets are independent, the rules themselves may not make sense separately.
+
 
 ## 📝 Changelog
 

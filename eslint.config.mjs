@@ -1,10 +1,13 @@
+// @ts-check
+
 import tseslint from 'typescript-eslint';
-import configX from './base.js'; // eslint-disable-line import-x/extensions
+import { configs } from './dist/index.js';
 
 export default tseslint.config(
-	...configX,
+	configs.recommended,
+	configs.esm,
 	{
-		ignores: ['node_modules', 'dist'],
+		ignores: ['dist/**'],
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
@@ -13,10 +16,10 @@ export default tseslint.config(
 		},
 	},
 	{
-		files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
-		extends: [
-			...tseslint.configs.recommendedTypeChecked,
-			...tseslint.configs.stylisticTypeChecked,
-		],
+		files: ['scripts/**/*.ts'],
+		rules: {
+			'import-x/no-relative-packages': 'off',
+			'import-x/no-extraneous-dependencies': 'off',
+		},
 	},
 );
