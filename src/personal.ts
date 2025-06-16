@@ -1,6 +1,7 @@
 import stylistic from '@stylistic/eslint-plugin';
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import importX from 'eslint-plugin-import-x';
+import shared from './rules/personal/shared.ts';
 
 export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfig.ConfigArray => [
 	{
@@ -45,6 +46,8 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			'no-param-reassign': 'off',
 			'no-plusplus': 'off',
 			'no-continue': 'off',
+
+			'no-restricted-globals': shared.rules['no-restricted-globals'],
 
 			'no-restricted-syntax': [
 				'error',
