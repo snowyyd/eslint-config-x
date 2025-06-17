@@ -71,6 +71,12 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			'@stylistic/no-tabs': ['error', { allowIndentationTabs: true }],
 			'@stylistic/max-len': 'off',
 			'@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
+			'@stylistic/comma-dangle': ['error', 'always-multiline'],
+
+			// TypeScript
+			'@stylistic/type-annotation-spacing': 'error',
+			'@stylistic/type-generic-spacing': 'error',
+			'@stylistic/member-delimiter-style': 'error',
 		},
 	},
 ];

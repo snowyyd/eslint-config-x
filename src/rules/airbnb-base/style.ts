@@ -107,7 +107,6 @@ export default {
 		'@stylistic/lines-around-comment': 'off',
 		'@stylistic/padding-line-between-statements': [
 			'error',
-			// TODO: check if this is correct
 			{ blankLine: 'always', prev: '*', next: 'directive' },
 			{ blankLine: 'always', prev: 'directive', next: '*' },
 			{ blankLine: 'any', prev: 'directive', next: 'directive' },
