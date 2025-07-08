@@ -50,7 +50,7 @@ export default {
 		'consistent-this': 'off',
 		'@stylistic/eol-last': ['error', 'always'],
 		'@stylistic/function-call-argument-newline': ['error', 'consistent'],
-		'@stylistic/func-call-spacing': ['error', 'never'],
+		'@stylistic/function-call-spacing': ['error', 'never'],
 		'func-name-matching': ['off', 'always', {
 			includeCommonJSModuleExports: false,
 			considerPropertyDescriptor: true,
