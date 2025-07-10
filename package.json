@@ -1,7 +1,7 @@
 {
 	"name": "@snowyyd/eslint-config",
 	"description": "Personal TypeScript ESLint configs",
-	"version": "2.2.0",
+	"version": "2.2.1",
 	"type": "module",
 	"homepage": "https://github.com/snowyyd/eslint-config-x#readme",
 	"repository": "https://github.com/snowyyd/eslint-config-x.git",

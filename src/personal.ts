@@ -73,6 +73,7 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			'@stylistic/max-len': 'off',
 			'@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
 			'@stylistic/comma-dangle': ['error', 'always-multiline'],
+			'@stylistic/lines-between-class-members': 'off',
 
 			// TypeScript
 			'@stylistic/type-annotation-spacing': 'error',
