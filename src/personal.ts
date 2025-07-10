@@ -78,7 +78,17 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			// TypeScript
 			'@stylistic/type-annotation-spacing': 'error',
 			'@stylistic/type-generic-spacing': 'error',
-			'@stylistic/member-delimiter-style': 'error',
+			'@stylistic/member-delimiter-style': ['error', {
+				multiline: {
+					delimiter: 'semi',
+					requireLast: true,
+				},
+				singleline: {
+					delimiter: 'semi',
+					requireLast: true,
+				},
+				multilineDetection: 'brackets',
+			}],
 		},
 	},
 ];
