@@ -74,8 +74,22 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			'@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
 			'@stylistic/comma-dangle': ['error', 'always-multiline'],
 			'@stylistic/lines-between-class-members': 'off',
+		},
+	},
+	{
+		name: '@snowyyd/eslint-config-x/personal-ts',
+		files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
+		rules: {
+			/**
+			 * best practices
+			 */
 
-			// TypeScript
+			// this is defined in airbnb-ts but is also checked by TypeScript itself
+			'@typescript-eslint/no-redeclare': 'off',
+
+			/**
+			 * styling & formatting
+			 */
 			'@stylistic/type-annotation-spacing': 'error',
 			'@stylistic/type-generic-spacing': 'error',
 			'@stylistic/member-delimiter-style': ['error', {
