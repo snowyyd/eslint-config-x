@@ -34,6 +34,7 @@ export default (plugin: FlatConfig.Plugin, parser: FlatConfig.Parser): FlatConfi
 			'prefer-template': 'off',
 			'prefer-destructuring': 'off',
 			'prefer-arrow-callback': 'off',
+			'no-void': ['error', { allowAsStatement: true }],
 
 			'prefer-const': ['error', {
 				destructuring: 'any',
