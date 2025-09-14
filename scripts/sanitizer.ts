@@ -1,8 +1,11 @@
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import chalk from 'chalk';
 import { configs } from '../src/index.ts';
+import type { CompatibleConfigArray } from '../src/types.ts';
 import { formatTree, getRuleUrl } from './utils/functions.ts';
 import { rules } from './utils/rules.ts';
+
+type CompatConfigType = CompatibleConfigArray & { files?: FlatConfig.Config['files']; };
 
 function rulesChecker(pkgName: string, cfgName: string, flatRules: FlatConfig.Rules, list: string[], reason: string, excludeOff?: boolean, files?: FlatConfig.Config['files'])
 {
@@ -61,6 +64,6 @@ Object.entries(configs).forEach(([name, cfg]) =>
 			[rules.tseslint.deprecated, 'tseslint deprecated'],
 			[rules.tseslint.superseded, 'tseslint superseded'],
 		] as const)
-			.forEach(([list, reason]) => rulesChecker(name, n, c.rules!, list, reason, true, c.files));
+			.forEach(([list, reason]) => rulesChecker(name, n, c.rules!, list, reason, true, (c as CompatConfigType).files));
 	});
 });

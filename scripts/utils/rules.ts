@@ -1,6 +1,6 @@
 import stylistic from '@stylistic/eslint-plugin';
 import tseslintRules from '@typescript-eslint/eslint-plugin/use-at-your-own-risk/rules';
-import { builtinRules } from 'eslint/use-at-your-own-risk';
+import { builtinRules } from 'eslint/use-at-your-own-risk'; // https://github.com/eslint/eslint/issues/19013
 import rulesTypeList from '../../node_modules/eslint/conf/rule-type-list.json' with { type: 'json' };
 import { configs } from '../../src/index.ts';
 import { mergeRulesStrictly } from './functions.ts';
