@@ -1,14 +1,16 @@
 // @ts-check
 
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 // import tseslint from 'typescript-eslint';
 import { configs } from './dist/index.js';
 
 export default defineConfig(
+	globalIgnores([
+		'dist/*',
+	]),
 	configs.recommended,
 	configs.esm,
 	{
-		ignores: ['dist/**'],
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
